@@ -1,6 +1,10 @@
 spring:
   application:
     name: fiap--spring-cartao-credito
+  #HACK https://github.com/springfox/springfox/issues/3462
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 server:
   port: 5000
