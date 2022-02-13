@@ -1,0 +1,2 @@
+### Gerar o projeto no Spring Initializr
+https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.6.3&packaging=jar&jvmVersion=11&groupId=com.fmarxds&artifactId=fiap--spring-cartao-credito&name=fiap--spring-cartao-credito&description=&packageName=com.fmarxds.fiap--spring-cartao-credito&dependencies=lombok,configuration-processor,web,data-mongodb,validation,mail,actuator,flapdoodle-mongo
