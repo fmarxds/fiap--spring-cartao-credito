@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "8512db4f-e46e-4616-b0a5-6fd3374f6c83",
+		"name": "fiap--spring-cartao-credito",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "aluno",
+			"item": [
+				{
+					"name": "Buscar Alunos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-host}}/alunos",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Aluno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matricula\": \"801239\",\n    \"nome\": \"Deborah Fracaro\",\n    \"turma\": \"40SCJ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-host}}/alunos",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"alunos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cartao",
+			"item": [
+				{
+					"name": "Criar Cartao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriculaAluno\": \"801239\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-host}}/cartoes",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"cartoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Cartao",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriculaAluno\": \"942741\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-host}}/cartoes/:cartaoId",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"cartoes",
+								":cartaoId"
+							],
+							"variable": [
+								{
+									"key": "cartaoId",
+									"value": "0ee4d760-4370-4fdd-90f1-ec5e4a38fbc7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Cartoes por Matricula",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriculaAluno\": \"942741\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-host}}/cartoes/matriculas/:matricula",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"cartoes",
+								"matriculas",
+								":matricula"
+							],
+							"variable": [
+								{
+									"key": "matricula",
+									"value": "942741"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Transacoes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matriculaAluno\": \"942741\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-host}}/cartoes/:cartaoId/transacoes",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"cartoes",
+								":cartaoId",
+								"transacoes"
+							],
+							"variable": [
+								{
+									"key": "cartaoId",
+									"value": "0ee4d760-4370-4fdd-90f1-ec5e4a38fbc7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Transacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"estabelecimento\": \"Espetinhos Compania\",\n    \"valor\": 100.10,\n    \"tipo\": \"DEBITO\",\n    \"parcelas\": 0,\n    \"dataHora\": \"15/01/2022 20:02:12\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-host}}/cartoes/:cartaoId/transacoes",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"cartoes",
+								":cartaoId",
+								"transacoes"
+							],
+							"variable": [
+								{
+									"key": "cartaoId",
+									"value": "0ee4d760-4370-4fdd-90f1-ec5e4a38fbc7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "extrato",
+			"item": [
+				{
+					"name": "Download Extrato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-host}}/extratos/matriculas/:matricula",
+							"host": [
+								"{{api-host}}"
+							],
+							"path": [
+								"extratos",
+								"matriculas",
+								":matricula"
+							],
+							"variable": [
+								{
+									"key": "matricula",
+									"value": "942741"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
