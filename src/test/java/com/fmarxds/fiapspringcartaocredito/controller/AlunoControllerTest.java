@@ -20,6 +20,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -65,11 +66,12 @@ class AlunoControllerTest {
         String searchOneUrl = String.format("%s/{matricula}", BASE_URL);
         String mockedMatricula = "12345";
 
-        Aluno mockedFoundAluno = new Aluno();
+        Aluno mockedFoundAluno = new Aluno("12345", "Teste", "Teste");
 
-        given(alunoService.buscarAluno(anyString())).willReturn(Optional.of(mockedFoundAluno));
+        when(alunoService.buscarAluno(anyString())).thenReturn(Optional.of(mockedFoundAluno));
 
-        mockMvc.perform(get(searchOneUrl, mockedMatricula))
+        mockMvc.perform(get(searchOneUrl, mockedMatricula)
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
