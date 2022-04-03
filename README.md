@@ -8,14 +8,14 @@ Sistema de gerenciamento de cartões de crédito.
 ![Build](https://img.shields.io/static/v1?label=Versão&message=1.0.0&color=blue)
 
 
-# Integrantes:
+# Integrantes
 - Arthur Gomes Araújo
 - Felipe Marques dos Santos
 - Fernando César Martins
 - Flávio Lopes de Brito
 - Lucas Oliveira Vaz
 
-## Funcionalidades
+# Funcionalidades
 
 - Cadastro de alunos;
 - Listagem de alunos cadastrados;
@@ -27,7 +27,7 @@ Sistema de gerenciamento de cartões de crédito.
 - Buscar transação pelo ID do cartão;
 - Gerar extrato em PDF;
 
-## Dependências
+# Dependências
 
 - Gradle
 - Java
@@ -39,7 +39,7 @@ Sistema de gerenciamento de cartões de crédito.
 - Spring Boot Actuator
 - Embedded MongoDB Database
 
-## Changelog
+# Changelog
 
 - 1.0.0
   - Cadastrar alunos
@@ -52,7 +52,20 @@ Sistema de gerenciamento de cartões de crédito.
   - Buscar transação por ID de cartão de crédito
   - Gerar extrato em PDF
 
-## Como executar
-    - Baixar o projeto https://github.com/fmarxds/fiap--spring-cartao-credito.git
-    - Importar o projeto na IDE de sua preferência
-    
+# Como Executar (Docker-Compose)
+
+Na raiz do projeto, execute o comando:
+
+- Criar a imagem do projeto e executar o containers do mongo e mongo-express
+> docker-compose up
+
+- Encerrar o ambiente
+> docker-compose down
+
+# Postman
+
+Na pasta "postman" na raiz do projeto, estão as collections e o environment do Postman para importação
+
+# Arquitetura
+
+O projeto consiste de uma aplicação Spring Boot conectando em um banco de dados MongoDB. É utilizado o spring-batch para realizar a carga inicial no banco de dados à partir de um arquivo CSV.
