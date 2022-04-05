@@ -31,7 +31,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
+import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -208,7 +208,7 @@ class CartaoControllerTest {
         transacoes.add(transacao);
         mockedFoundCartao = new Cartao("68c57a52-21b0-4fd9-9d1b-27179ce255c1", "John Doe", transacoes);
 
-        when(cartaoService.buscarCartao(anyString())).thenReturn(Optional.of(mockedFoundCartao));
+        given(cartaoService.buscarCartao(anyString())).willReturn(Optional.of(mockedFoundCartao));
 
         mockMvc.perform(get(searchOneUrl, mockedCartao)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -235,7 +235,7 @@ class CartaoControllerTest {
         transacoes.add(transacao);
         mockedFoundCartao = new Cartao("68c57a52-21b0-4fd9-9d1b-27179ce255c1", "John Doe", transacoes);
 
-        when(cartaoService.buscarCartao(anyString())).thenReturn(Optional.of(mockedFoundCartao));
+        given(cartaoService.buscarCartao(anyString())).willReturn(Optional.of(mockedFoundCartao));
 
         mockMvc.perform(get(searchOneUrl, mockedCartao)
                         .contentType(MediaType.APPLICATION_JSON))
