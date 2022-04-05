@@ -231,11 +231,9 @@ class CartaoControllerTest {
         transacao.setTipo (TipoTransacaoEnum.valueOf("CREDITO"));
         transacao.setParcelas(2);
         transacao.setDataHora(LocalDateTime.from(dtf.parse("03/04/2022 23:27:20")));
-
         transacoes.add(transacao);
-        mockedFoundCartao = new Cartao("68c57a52-21b0-4fd9-9d1b-27179ce255c1", "John Doe", transacoes);
 
-        given(cartaoService.buscarCartao(anyString())).willReturn(Optional.of(mockedFoundCartao));
+        given(cartaoService.buscarTransacoes(anyString())).willReturn(List.of(transacao));
 
         mockMvc.perform(get(searchOneUrl, mockedCartao)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -250,7 +248,7 @@ class CartaoControllerTest {
 
         Cartao mockedFoundCartao = new Cartao();
 
-        given(cartaoService.buscarCartao(anyString())).willReturn(Optional.of(mockedFoundCartao));
+        given(cartaoService.buscarCartoes(anyString())).willReturn(List.of(mockedFoundCartao));
 
         mockMvc.perform(get(searchOneUrl, mockedMatricula)
                         .contentType(MediaType.APPLICATION_JSON))
