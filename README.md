@@ -62,6 +62,12 @@ Na raiz do projeto, execute o comando:
 - Encerrar o ambiente
 > docker-compose down
 
+# Swagger
+
+O swagger pode ser acessado na URL abaixo após iniciar a aplicação
+
+> http://localhost:5000/swagger-ui/
+
 # Postman
 
 Na pasta "postman" na raiz do projeto, estão as collections e o environment do Postman para importação

@@ -23,7 +23,7 @@ public class AlunoController {
 
     }
 
-    @GetMapping("/{matricula} ")
+    @GetMapping("/{matricula}")
     public ResponseEntity<Aluno> buscarAluno(
             @PathVariable("matricula") String matricula
     ) {
