@@ -19,7 +19,7 @@ public class ExtratoController {
             produces = MediaType.APPLICATION_PDF_VALUE
     )
     public @ResponseBody
-    byte[] downloadExtradoPdf(
+    byte[] downloadExtratoPdf(
             @PathVariable("matricula") String matricula,
             HttpServletResponse httpServletResponse
     ) {
