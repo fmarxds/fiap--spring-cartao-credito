@@ -241,4 +241,20 @@ class CartaoControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    @DisplayName("Buscar Matricula")
+    void buscarMatricula() throws Exception {
+        String searchOneUrl = String.format("%s/matriculas/{matricula}", BASE_URL);
+        String mockedMatricula = "12345";
+
+        Cartao mockedFoundCartao = new Cartao();
+
+        given(cartaoService.buscarCartao(anyString())).willReturn(Optional.of(mockedFoundCartao));
+
+        mockMvc.perform(get(searchOneUrl, mockedMatricula)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
 }
